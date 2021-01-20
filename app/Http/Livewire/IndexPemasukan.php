@@ -55,6 +55,8 @@ class IndexPemasukan extends Component
             'updated_at' => $this->updated_at
         ]);
 
+        session()->flash('info', $this->pemasukanId ? 'Berhasil di update' : 'Berhasil di tambah');
+
         $this->closeAlert();
 
         $this->pemasukanId = '';
@@ -77,5 +79,6 @@ class IndexPemasukan extends Component
     public function delete($id)
     {
         pemasukan::find($id)->delete();
+        session()->flash('delete','Berhasil di hapus');
     }
 }

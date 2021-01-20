@@ -53,6 +53,8 @@ class IndexPengeluaran extends Component
             'updated_at' => $this->updated_at
         ]);
 
+        session()->flash('info', $this->pengeluaranId ? 'Berhasil di update' : 'Berhasil di tambah');
+
         $this->closeAlert();
 
         $this->pengeluaranId = '';
@@ -74,5 +76,6 @@ class IndexPengeluaran extends Component
 
     public function delete($id){
         pengeluaran::find($id)->delete();
+        session()->flash('delete', 'Berhasil di hapus');
     }
 }
