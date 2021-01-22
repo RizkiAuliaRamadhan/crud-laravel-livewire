@@ -14,6 +14,7 @@ class IndexPengeluaran extends Component
     public $pengeluaranId, $nominal, $keterangan, $updated_at;
     public $openAlert = 0;
     public $search = '';
+    public $paginationDinamis = 5;
 
     public function updatingSearch()
     {
@@ -23,7 +24,7 @@ class IndexPengeluaran extends Component
     public function render()
     {
         // $this->pengeluaran = pengeluaran::all();
-        $pagination = pengeluaran::orderBy('updated_at', 'desc')->where('keterangan', 'like', '%'.$this->search.'%')->paginate(5);
+        $pagination = pengeluaran::orderBy('updated_at', 'desc')->where('keterangan', 'like', '%'.$this->search.'%')->paginate($this->paginationDinamis);
 
         return view('livewire.index-pengeluaran', compact('pagination'));
     }

@@ -16,6 +16,7 @@ class IndexPemasukan extends Component
     public $pemasukanId, $nominal, $keterangan, $updated_at;
     public $openAlert = 0;
     public $search = '';
+    public $paginationDinamis = 5;
 
     public function updatingSearch()
     {
@@ -24,8 +25,8 @@ class IndexPemasukan extends Component
 
     public function render()
     {
-        // $this->pemasukan = pemasukan::all();
-        $pagination = pemasukan::orderBy('updated_at', 'desc')->where('keterangan', 'like', '%'.$this->search.'%')->paginate(5);
+
+        $pagination = pemasukan::orderBy('updated_at', 'desc')->where('keterangan', 'like', '%'.$this->search.'%')->paginate($this->paginationDinamis);
 
         return view('livewire.index-pemasukan', compact('pagination'));
     }

@@ -7,6 +7,19 @@
                 Create
             </button>
         </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <div class="form-group">
+              <select wire:model="paginationDinamis" class="form-control">
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+        </div>
+        <div class="col-2"></div>
         <div class="col-2"></div>
         <div class="col-2">
             <div wire:loading>
